@@ -1,14 +1,14 @@
 <ion-view view-title="Rate">
   <ion-content>
     <!-- SWIPEABLE -->
-    <div ng-if="comparisons.length == 0">
+    <div class="empty_message" ng-if="comparisons.length == 0">
       There are currently no couples for you to rate.
     </div>
     <td-cards>
-      <td-card ng-repeat="comparison in comparisons track by $index" ng-style="{'z-index': 50-$index}" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)">
+      <td-card ng-repeat="comparison in comparisons track by $index" ng-style="{'z-index': 50-$index}" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}">
             <div class="row card-container">
               <div class="col">
-                <div class="compare_person" ng-style="{'background-image': comparison.male.profilePic}"></div>
+                <div class="compare_person" ng-style="{'background-image': 'url(' + comparison.male.profilePic + ')'}"></div>
                 <div class="person_info">
                   {{comparison.male.name}}
                 </div>
@@ -28,18 +28,18 @@
 
     <!-- CONTROLS -->
 
-    <div class="row" id="controls">
-      <div class="column">
+    <div class="row" id="controls" ng-if="comparisons.length > 0">
+      <div>
         <button class="button round rate" ng-click="cardSwipedLeft(0)">
           <i class="icon ion-thumbsup"></i>
         </button>        
-      </div>
-      <div class="column">
+      
+      
         <button class="button round undecided" ng-click="cardEqual(0)">
           <i class="icon ion-help"></i>
         </button>
-      </div>
-      <div class="column">
+      
+      
         <button class="button round rate" ng-click="cardSwipedRight(0)">
           <i class="icon ion-thumbsup"></i>
         </button>

@@ -105,7 +105,7 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
   };
 })
 
-.controller('ToplistsCtrl', function($scope, Chats) {
+.controller('ToplistsCtrl', function($scope, CouplesAPI) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -114,10 +114,9 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };
+  CouplesAPI.getAll().then(function (response) {
+    $scope.couples = response;
+  });
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
