@@ -39,22 +39,27 @@ angular.module('hotlikeme', [
 
 .config(function($stateProvider, $urlRouterProvider, RestangularProvider) {
 
-  // simplify restangular response's nesting
+  // Unwrap our results
 
-  // RestangularProvider.addResponseInterceptor(function (data, operation, what) {
-  //   var newData;
-  //   if (data[what]) {
-  //     newData = data[what];
-  //   } else if (typeof what === 'string' && data[what.slice(0, -1)]) {
-  //     newData = data[what.slice(0, -1)];
-  //   } else {
-  //     newData = data;
-  //   }
-  //   if (data.additional_data) {
-  //     newData.additional_data = data.additional_data;
-  //   }
-  //   return newData;
-  // });
+  RestangularProvider.addResponseInterceptor(function (data, operation, what) {
+    var newData;
+    if (data[what]) {
+      newData = data[what];
+    } else if (typeof what === 'string' && data[what.slice(0, -1)]) {
+      newData = data[what.slice(0, -1)];
+    } else {
+      newData = data;
+    }
+
+    if (operation == 'getList') {
+      newData = newData['results'];
+    }
+
+    if (data.additional_data) {
+      newData.additional_data = data.additional_data;
+    }
+    return newData;
+  });
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router

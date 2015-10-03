@@ -1,6 +1,6 @@
 angular.module('hotlikeme.controllers', ['ngOpenFB'])
 
-.controller('LoginCtrl', function($scope, $state, ngFB, UsersAPI) {
+.controller('LoginCtrl', function($scope, $rootScope, $state, ngFB, UsersAPI) {
   $scope.fbLogin = function () {
     ngFB.login({scope: 'email, public_profile, user_friends, user_birthday'}).then(
         function (response) {
@@ -21,6 +21,7 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
                       };
                       console.log(userData);
                       UsersAPI.create(userData).then(function (response) {
+                        $rootScope.user = response;
                         console.log(response);
                         // SessionsAPI.setCurrentUser(response);
                         $state.go('tab.rate');
@@ -42,13 +43,14 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
   };
 })
 
-.controller('RateCtrl', function($scope, UsersAPI) {
+.controller('RateCtrl', function($scope, $rootScope, ComparisonsAPI) {
   var userData = {
     name: "test",
     gender: "male"
   };
-  UsersAPI.create(userData).then(function (response) {
-    console.log("");
+  ComparisonsAPI.getAll($rootScope.user.id).then(function (response) {
+    console.log(response);
+    $scope.comparisons = response;
     // SessionsAPI.setCurrentUser(response);
   });
 

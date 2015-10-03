@@ -1,5 +1,8 @@
 <ion-view view-title="Rate">
   <ion-content class="padding">
+    <div ng-if="comparisons.length == 0">
+      There are currently no couples for you to rate.
+    </div>
     <td-cards>
       <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-swipe="cardSwiped($index)">
         <div style="height:100px; background-color: red">
