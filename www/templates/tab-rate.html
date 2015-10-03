@@ -1,9 +1,11 @@
 <ion-view view-title="Rate">
   <ion-content class="padding">
-
     <!-- SWIPEABLE -->
+    <div ng-if="comparisons.length == 0">
+      There are currently no couples for you to rate.
+    </div>
     <td-cards>
-          <td-card ng-repeat="card in cards"  on-destroy="cardDestroyed($index)" on-swipe="cardSwiped($index)">
+      <td-card ng-repeat="comparison in comparisons" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)">
             <div class="row card-container">
               <div class="col">
                 <div class="compare_person">

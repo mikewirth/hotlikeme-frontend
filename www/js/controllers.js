@@ -1,6 +1,6 @@
 angular.module('hotlikeme.controllers', ['ngOpenFB'])
 
-.controller('LoginCtrl', function($scope, $state, ngFB, UsersAPI) {
+.controller('LoginCtrl', function($scope, $rootScope, $state, ngFB, UsersAPI) {
   $scope.fbLogin = function () {
     ngFB.login({scope: 'email, public_profile, user_friends, user_birthday'}).then(
         function (response) {
@@ -21,6 +21,7 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
                       };
                       console.log(userData);
                       UsersAPI.create(userData).then(function (response) {
+                        $rootScope.user = response;
                         console.log(response);
                         // SessionsAPI.setCurrentUser(response);
                         $state.go('tab.rate');
@@ -42,29 +43,51 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
   };
 })
 
-.controller('RateCtrl', function($scope, UsersAPI) {
-  var userData = {
-    name: "test",
-    gender: "male"
-  };
-  UsersAPI.create(userData).then(function (response) {
-    console.log("");
+.controller('RateCtrl', function($scope, $rootScope, ComparisonsAPI) {
+  ComparisonsAPI.getAll($rootScope.user.id).then(function (response) {
+    console.log(response);
+    $scope.comparisons = response;
     // SessionsAPI.setCurrentUser(response);
   });
 
-   $scope.cards = [
-    { name: "bla" },
-    { name: "bla" },
-    { name: "bla" }
-  ];
+
+  //  $scope.comparisons = [
+  //   { id: 1234 },
+  //   { id: 2 },
+  //   { id: 3 }
+  // ];
 
   $scope.cardDestroyed = function(index) {
-    $scope.cards.splice(index, 1);
+    // $scope.cards.splice(index, 1);
   };
 
   $scope.cardSwiped = function(index) {
     // var newCard = ""// new card data
     // $scope.cards.push(newCard);
+    console.log("swiped" + index);
+  };
+
+  $scope.cardSwipedLeft = function(index) {
+    // var newCard = ""// new card data
+    // $scope.cards.push(newCard);
+    console.log("swiped left" + index);
+    var comparison = $scope.comparisons.splice(index, 1);
+    ComparisonsAPI.update(comparison[0].id, 'male');
+  };
+
+  $scope.cardSwipedRight = function(index) {
+    // var newCard = ""// new card data
+    // $scope.cards.push(newCard);
+    console.log("swiped right" + index);
+
+    var comparison = $scope.comparisons.splice(index, 1);
+    ComparisonsAPI.update(comparison[0].id, 'female');
+  };
+
+  $scope.cardPartialSwipe = function(position) {
+    // var newCard = ""// new card data
+    // $scope.cards.push(newCard);
+    // console.log("partial swipe" + position);
   };
 })
 
