@@ -11,11 +11,16 @@ angular.module('hotlikeme', [
   'hotlikeme.services',
   'hotlikeme.api',
   'ionic.contrib.ui.tinderCards',
-  'restangular'
+  'restangular',
+  'ngOpenFB'
 ])
 
-.run(function($ionicPlatform, Restangular) {
+.run(function($ionicPlatform, Restangular, ngFB) {
+  // Set API endpoint
   Restangular.setBaseUrl('http://172.27.0.50:5000/api');
+
+  // Initialize FB app
+  ngFB.init({appId: '1629298697340872'});
 
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -57,8 +62,14 @@ angular.module('hotlikeme', [
   // Each state's controller can be found in controllers.js
   $stateProvider
 
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'LoginCtrl'
+  })  
+
   // setup an abstract state for the tabs directive
-    .state('tab', {
+  .state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
@@ -106,6 +117,6 @@ angular.module('hotlikeme', [
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/rate');
+  $urlRouterProvider.otherwise('/login');
 
 });

@@ -1,4 +1,22 @@
-angular.module('hotlikeme.controllers', [])
+angular.module('hotlikeme.controllers', ['ngOpenFB'])
+
+.controller('LoginCtrl', function($scope, $state, ngFB) {
+  $scope.fbLogin = function () {
+    ngFB.login({scope: 'email, public_profile, user_friends'}).then(
+        function (response) {
+            if (response.status === 'connected') {
+                console.log('Facebook login succeeded');
+                $state.go('tab.rate');
+            } else {
+                alert('Facebook login failed');
+            }
+        });
+  };
+
+  $scope.loginTest = function () {
+    $state.go('tab.rate');
+  };
+})
 
 .controller('RateCtrl', function($scope, UsersAPI) {
   var userData = {
