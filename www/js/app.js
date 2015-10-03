@@ -5,9 +5,18 @@
 // the 2nd parameter is an array of 'requires'
 // 'hotlikeme.services' is found in services.js
 // 'hotlikeme.controllers' is found in controllers.js
-angular.module('hotlikeme', ['ionic', 'hotlikeme.controllers', 'hotlikeme.services'])
+angular.module('hotlikeme', [
+  'ionic',
+  'hotlikeme.controllers',
+  'hotlikeme.services',
+  'hotlikeme.api',
+  'ionic.contrib.ui.tinderCards',
+  'restangular'
+])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, Restangular) {
+  Restangular.setBaseUrl('http://172.27.0.50:5000/api');
+
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -23,7 +32,24 @@ angular.module('hotlikeme', ['ionic', 'hotlikeme.controllers', 'hotlikeme.servic
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, RestangularProvider) {
+
+  // simplify restangular response's nesting
+
+  // RestangularProvider.addResponseInterceptor(function (data, operation, what) {
+  //   var newData;
+  //   if (data[what]) {
+  //     newData = data[what];
+  //   } else if (typeof what === 'string' && data[what.slice(0, -1)]) {
+  //     newData = data[what.slice(0, -1)];
+  //   } else {
+  //     newData = data;
+  //   }
+  //   if (data.additional_data) {
+  //     newData.additional_data = data.additional_data;
+  //   }
+  //   return newData;
+  // });
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router

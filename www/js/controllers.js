@@ -1,6 +1,30 @@
 angular.module('hotlikeme.controllers', [])
 
-.controller('RateCtrl', function($scope) {})
+.controller('RateCtrl', function($scope, UsersAPI) {
+  var userData = {
+    name: "test",
+    gender: "male"
+  };
+  UsersAPI.create(userData).then(function (response) {
+    console.log("");
+    // SessionsAPI.setCurrentUser(response);
+  });
+
+   $scope.cards = [
+    { name: "bla" },
+    { name: "bla" },
+    { name: "blu" }
+  ];
+
+  $scope.cardDestroyed = function(index) {
+    $scope.cards.splice(index, 1);
+  };
+
+  $scope.cardSwiped = function(index) {
+    // var newCard = ""// new card data
+    // $scope.cards.push(newCard);
+  };
+})
 
 .controller('ToplistsCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
