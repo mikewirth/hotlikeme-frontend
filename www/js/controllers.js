@@ -125,7 +125,7 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
 })
 
 .controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
+  UsersAPI.get('me').then(function (response) {
+    $scope.user = response;
+  });
 });
