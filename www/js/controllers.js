@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('hotlikeme.controllers', [])
 
 .controller('RateCtrl', function($scope) {})
 
