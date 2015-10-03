@@ -7,7 +7,8 @@
       create: create,
       get: get,
       update: update,
-      updateSettings: updateSettings
+      updateSettings: updateSettings,
+      getAllMatches: getAllMatches
     };
 
     return vm;
@@ -37,6 +38,10 @@
      */
     function update(id, data) {
       return Restangular.one('users', id).customPUT(data);
+    }
+
+    function getAllMatches(userID) {
+      return Restangular.one('users', userID).all('matches').getList();
     }
 
     /**

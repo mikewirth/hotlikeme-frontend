@@ -124,8 +124,12 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('AccountCtrl', function($scope) {
+.controller('AccountCtrl', function($scope, UsersAPI) {
+  console.log("test");
   UsersAPI.get('me').then(function (response) {
     $scope.user = response;
+    UsersAPI.getAllMatches($scope.user.id).then(function (response) {
+      $scope.matches = response;
+    });
   });
 });
