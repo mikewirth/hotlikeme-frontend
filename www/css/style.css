@@ -1,1 +1,49 @@
 /* Empty. Add your own CSS if you like */
+
+
+/*COMPARISONS*/
+
+div.compare_person {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-image: url("http://selfieyo.com/wp-content/uploads/2015/03/selfiegood1.jpg");
+  background-size: 100px 100px;
+}
+
+button.round {
+	border-radius: 50%;
+}
+
+button.rate {
+	width: 70px;
+	height: 70px;
+    /*position: absolute;*/
+    /*bottom: -25px;*/
+    /*right: 0;*/
+}
+
+button.undecided {
+	width: 50px;
+	height: 50px;
+    /*position: absolute;*/
+    /*bottom: -25px;*/
+    /*right: 0;*/
+}
+
+td-card{
+	background-color: white;
+	width: 400px;
+	height: 200px;
+	border: 1px solid #999;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+    border-radius: 6px;
+    position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+#controls{
+	position: absolute;
+	top:250px;
+}

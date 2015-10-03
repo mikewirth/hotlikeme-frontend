@@ -25,7 +25,7 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
                         // SessionsAPI.setCurrentUser(response);
                         $state.go('tab.rate');
                       });
-                      
+
                   },
                   function (error) {
                       alert('Facebook error: ' + error.error_description);
@@ -55,7 +55,7 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
    $scope.cards = [
     { name: "bla" },
     { name: "bla" },
-    { name: "blu" }
+    { name: "bla" }
   ];
 
   $scope.cardDestroyed = function(index) {
