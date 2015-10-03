@@ -12,15 +12,31 @@ angular.module('hotlikeme', [
   'hotlikeme.api',
   'ionic.contrib.ui.tinderCards',
   'restangular',
-  'ngOpenFB'
+  'ngOpenFB',
+  'ngCookies'
 ])
 
-.run(function($ionicPlatform, Restangular, ngFB) {
+.run(function($ionicPlatform, $rootScope, $state, Restangular, ngFB, $cookies, UsersAPI) {
   // Set API endpoint
-  Restangular.setBaseUrl('http://172.27.0.50:5000/api');
+  Restangular.setBaseUrl('http://local.dealini.ch:5000/api');
 
   // Initialize FB app
   ngFB.init({appId: '1629298697340872'});
+
+  // console.log("cookie" + $cookies.get('session'));
+  // // if ($cookies.get('session')) {
+  //   console.log("Loading user");
+  //   UsersAPI.get('me').then(function (response) {
+  //     // if (response)
+  //     console.log("logging");
+  //     console.log(response);
+  //     if (response && response.id) {
+  //       $rootScope.user = response;
+  //       console.log(response);
+  //       $state.go('tab.rate');
+  //     }
+  //   });
+  // // }
 
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -39,8 +55,11 @@ angular.module('hotlikeme', [
 
 .config(function($stateProvider, $urlRouterProvider, RestangularProvider) {
 
-  // Unwrap our results
+  RestangularProvider.setDefaultHttpFields({
+    withCredentials: true
+  });
 
+  // Unwrap our results
   RestangularProvider.addResponseInterceptor(function (data, operation, what) {
     var newData;
     if (data[what]) {
