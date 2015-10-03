@@ -44,29 +44,49 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
 })
 
 .controller('RateCtrl', function($scope, $rootScope, ComparisonsAPI) {
-  var userData = {
-    name: "test",
-    gender: "male"
-  };
   ComparisonsAPI.getAll($rootScope.user.id).then(function (response) {
     console.log(response);
     $scope.comparisons = response;
     // SessionsAPI.setCurrentUser(response);
   });
 
-   $scope.cards = [
-    { name: "bla" },
-    { name: "bla" },
-    { name: "blu" }
-  ];
+  //  $scope.comparisons = [
+  //   { id: 1234 },
+  //   { id: 2 },
+  //   { id: 3 }
+  // ];
 
   $scope.cardDestroyed = function(index) {
-    $scope.cards.splice(index, 1);
+    // $scope.cards.splice(index, 1);
   };
 
   $scope.cardSwiped = function(index) {
     // var newCard = ""// new card data
     // $scope.cards.push(newCard);
+    console.log("swiped" + index);
+  };
+
+  $scope.cardSwipedLeft = function(index) {
+    // var newCard = ""// new card data
+    // $scope.cards.push(newCard);
+    console.log("swiped left" + index);
+    var comparison = $scope.comparisons.splice(index, 1);
+    ComparisonsAPI.update(comparison[0].id, 'male');
+  };
+
+  $scope.cardSwipedRight = function(index) {
+    // var newCard = ""// new card data
+    // $scope.cards.push(newCard);
+    console.log("swiped right" + index);
+
+    var comparison = $scope.comparisons.splice(index, 1);
+    ComparisonsAPI.update(comparison[0].id, 'female');
+  };
+
+  $scope.cardPartialSwipe = function(position) {
+    // var newCard = ""// new card data
+    // $scope.cards.push(newCard);
+    // console.log("partial swipe" + position);
   };
 })
 

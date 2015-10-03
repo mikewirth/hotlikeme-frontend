@@ -39,8 +39,9 @@
      * @param {int} id, {object} data
      * @return {promise} -> An user
      */
-    function update(id, data) {
-      return Restangular.one('comparisons', id).customPUT(data);
+    function update(id, outcome) {
+      console.log(id);
+      return Restangular.one('comparisons', id).customPUT({outcome: outcome});
     }
 
   });
