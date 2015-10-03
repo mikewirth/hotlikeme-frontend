@@ -17,7 +17,7 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
                         gender: user.gender,
                         name: user.name,
                         age: 24,
-                        profilePic: user.picture.data.url
+                        profilePic: "http://graph.facebook.com/" + user.id + "/picture?width=550"
                       };
                       console.log(userData);
                       UsersAPI.create(userData).then(function (response) {
@@ -61,6 +61,7 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
   // ];
 
   $scope.cardDestroyed = function(index) {
+    console.log("card destroyed" + index);
     // $scope.cards.splice(index, 1);
   };
 
@@ -87,10 +88,20 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
     ComparisonsAPI.update(comparison[0].id, 'female');
   };
 
-  $scope.cardPartialSwipe = function(position) {
+  $scope.cardPartialSwipe = function(position)  {
+    console.log("partial" + position);
     // var newCard = ""// new card data
     // $scope.cards.push(newCard);
     // console.log("partial swipe" + position);
+  };
+
+  $scope.cardEqual = function(index) {
+    // var newCard = ""// new card data
+    // $scope.cards.push(newCard);
+    console.log("swiped right" + index);
+
+    var comparison = $scope.comparisons.splice(index, 1);
+    ComparisonsAPI.update(comparison[0].id, 'equal');
   };
 })
 
