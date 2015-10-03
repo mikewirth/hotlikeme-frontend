@@ -47,3 +47,21 @@ td-card{
 	position: absolute;
 	top:250px;
 }
+
+/* TOPLIST */
+
+img.toplist-user{
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+}
+
+/* ACCOUNT */
+#account-img{
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	background-image: url("http://img1.rnkr-static.com/list_img/3169/2143169/C300/the-most-outrageous-donald-trump-moments.jpg");
+  	background-size: cover;
+    background-repeat: no-repeat;
+}
