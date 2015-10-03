@@ -1,12 +1,36 @@
 angular.module('hotlikeme.controllers', ['ngOpenFB'])
 
-.controller('LoginCtrl', function($scope, $state, ngFB) {
+.controller('LoginCtrl', function($scope, $state, ngFB, UsersAPI) {
   $scope.fbLogin = function () {
-    ngFB.login({scope: 'email, public_profile, user_friends'}).then(
+    ngFB.login({scope: 'email, public_profile, user_friends, user_birthday'}).then(
         function (response) {
             if (response.status === 'connected') {
                 console.log('Facebook login succeeded');
-                $state.go('tab.rate');
+                ngFB.api({
+                  path: '/me',
+                  params: {fields: 'id,name,birthday,gender,picture'}
+                }).then(
+                  function (user) {
+                      console.log(user);
+                      var userData = {
+                        id: user.id,
+                        gender: user.gender,
+                        name: user.name,
+                        age: 24,
+                        profilePic: user.picture.data.url
+                      };
+                      console.log(userData);
+                      UsersAPI.create(userData).then(function (response) {
+                        console.log(response);
+                        // SessionsAPI.setCurrentUser(response);
+                        $state.go('tab.rate');
+                      });
+                      
+                  },
+                  function (error) {
+                      alert('Facebook error: ' + error.error_description);
+                  }
+                );
             } else {
                 alert('Facebook login failed');
             }
