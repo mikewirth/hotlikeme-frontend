@@ -205,8 +205,21 @@ div.toplist-row{
 	margin-left: ;
 }
 
-div.toplist-row .col{
+div.toplist-row .cell-left{
+	text-align: right;
+}
+
+div.toplist-row .cell-right{
+	text-align: left;
+}
+
+.text-center{
 	text-align: center;
+}
+
+span.top-score{
+	font-size: 1.5em;
+	
 }
 
 /* ACCOUNT */

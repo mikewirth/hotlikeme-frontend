@@ -3,18 +3,21 @@
     <ion-list>
       <ion-item class="toplist-container item-remove-animate item-avatar item-icon-right" ng-repeat="couple in couples" type="item-text-wrap">
       <div class="row toplist-row">
-        <div class="col col-50">
-          <div>
-             <img ng-src="{{couple.male.profilePic}}" class="toplist-user">
+        <div class="col col-center text-center">
+        <span class="top-score">{{Math.round(couple.male.hotness*10)/10}}</span>
+        </div>
+        <div class="col col-33 cell-left">
+            <img ng-src="{{couple.male.profilePic}}" class="toplist-user">
             <h2>{{couple.male.name}}</h2>
             <p>{{couple.lastText}}</p>
-          </div>
-
         </div>
-        <div class="col col-50">
+        <div class="col col-33 cell-right">
           <img ng-src="{{couple.female.profilePic}}" class="toplist-user">
           <h2>{{couple.female.name}}</h2>
           <p>{{couple.lastText}}</p>
+        </div>
+        <div class="col col-center text-center">
+        <span class="top-score">{{Math.round(couple.female.hotness*10)/10}}</span>
         </div>
       </div>
 
