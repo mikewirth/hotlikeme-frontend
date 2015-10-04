@@ -2,11 +2,11 @@
 <ion-content>
 
 <div class="row">
-	<div class="col">
+	<div class="col col-50">
 		<div id="account-img" ng-style="{'background-image': 'url(' + user.profilePic + ')'}"></div>
 	</div>
-	<div class="col"><h3>Hotness:<br>{{Math.round(user.hotness*10)/10}}</h3></div>
-	<div class="col"><h3>Equals:<br>12</h3></div>
+	<div class="col"><h3 class="account-score">{{Math.round(user.hotness*10)/10}}</h3><span class="description">hotness</span></div>
+	<div class="col"><h3 class="account-score">12</h3><span class="description">equals</span></div>
 </div>
 <div class="row dividerbar">
 	<div class="col">
