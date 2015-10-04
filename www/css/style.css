@@ -53,35 +53,13 @@ ion-tabs.tabs-color-active-positive .tab-item {
 
 /*START SCREEN*/
 
-#background {
-	width: 100%;
-	height: 100%;
-	background-image: url("http://ec2-52-28-68-232.eu-central-1.compute.amazonaws.com/people/home_scr.png");
-  	background-size: cover;
-}
-
-#overlay {
-	width: 100%;
-	height: 100%;
-	  content: " ";
-  z-index: 10;
-  display: block;
-  position: absolute;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  /*background: rgba(0, 0, 0, 0.5);*/
-  background: linear-gradient(to bottom, rgba(125,126,125, 0.5) 0%,rgba(14,14,14, 0.8) 100%);
-}
-
 #btn-login-fb {
 	color: #fff;
     background-color: #3b5998;
     border-color: rgba(0,0,0,0.2);
 	line-height: 1.5;
 	font-family: "Lucida Grande", Tahoma;
-	font-size: 20px;
+	font-size: 19px;
 	font-weight: bold;
 	border: none;
 	width: 300px;
@@ -89,19 +67,33 @@ ion-tabs.tabs-color-active-positive .tab-item {
 	border-radius: 5px;
 	
 	position: absolute;
-	bottom: 50px;
+	bottom: 30px;
 	left: 50%;
 	margin-left: -150px;
+
+	box-shadow: 0px 1px 4px #999;
 }
 
 #claim {
 	position: absolute;
-	bottom: 250px;
+	top: 90px;
     width: 100%;
     text-align: center;
 	font-size: 1.5em;
-	font-weight: 900;
-	color: #D3D3D3;
+	/*font-weight: 900;*/
+	color: #B3B3B3;
+	padding: 30px;
+}
+
+#welcome_logo {
+	width: 100%;
+	position: absolute;
+	top: 45px;
+	text-align: center;
+}
+
+#welcome_logo img {
+	width: 80%;
 }
 
 /*COMPARISONS*/
@@ -186,7 +178,7 @@ td-card {
 
 #controls{
 	position: absolute;
-	top: 280px;
+	top: 300px;
 }
 
 #controls > div {
