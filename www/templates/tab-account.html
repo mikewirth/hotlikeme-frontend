@@ -1,19 +1,14 @@
 <ion-view view-title="{{user.name}}">
 <ion-content>
 
-<div class="row">
+<div class="row" style="border-bottom: 1px solid #ddd; width: 100%;">
 	<div class="col">
 		<div id="account-img" ng-style="{'background-image': 'url(' + user.profilePic + ')'}"></div>
 	</div>
 	<div class="col">
-		<div class="row">
-			<h2>{{$scope.user}}</h2>
+		<h3>Hotness:<br>{{Math.round(user.sigma*10)/10}}</h3>
 		</div>
-		<div class="row">
-			<div class="col"><h3>Rank: {{user.sigma}}</h3></div>
-			<div class="col"><h3>Matches: 12</h3></div>
-			<div class="col"><h3></h3></div>
-		</div>
+	<div class="col"><h3>Equals:<br>12</h3></div>
 	</div>
 </div>
 <div id="suggested-matches">
