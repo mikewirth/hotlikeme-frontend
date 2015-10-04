@@ -33,7 +33,7 @@ ion-tabs.tabs-color-active-positive .tab-item {
 
 .dividerbar {
 	border-top: 1px solid #ddd;
-	/* border-bottom: 1px solid #ddd; */
+	border-bottom: 1px solid #eee;
 	width: 100%;
 	background-color: #f8f8f8
 }
