@@ -69,8 +69,11 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
 
   $scope.cardDestroyed = function(index) {
     console.log("card destroyed" + index);
-    $scope.comparisons.splice(index, 1);
+    // $scope.comparisons.splice(index, 1);
     // $scope.cards.splice(index, 1);
+    if(cardsLeft == 0){
+      $scope.comparisons = [];  
+    }
   };
 
   $scope.cardSwiped = function(index) {
