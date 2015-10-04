@@ -132,6 +132,7 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
       $scope.couples = response;
     });
   });
+  $scope.Math = window.Math;
 })
 
 .controller('AccountCtrl', function($scope, UsersAPI) {
