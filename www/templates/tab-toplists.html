@@ -1,23 +1,22 @@
 <ion-view view-title="<img src='img/logo_white.png' class='navbar_logo'>">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="couple in couples" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
-      <div class="row">
-        <div class="col col-33">
-          <img ng-src="{{couple.male.profilePic}}" class="toplist-user">
-          <h2>{{couple.male.name}}</h2>
-          <p>{{couple.lastText}}</p>
+      <ion-item class="toplist-container item-remove-animate item-avatar item-icon-right" ng-repeat="couple in couples" type="item-text-wrap">
+      <div class="row toplist-row">
+        <div class="col col-50">
+          <div>
+             <img ng-src="{{couple.male.profilePic}}" class="toplist-user">
+            <h2>{{couple.male.name}}</h2>
+            <p>{{couple.lastText}}</p>
+          </div>
+
         </div>
-        <div class="col">
-          
-        </div>
-        <div class="col col-33">
+        <div class="col col-50">
           <img ng-src="{{couple.female.profilePic}}" class="toplist-user">
           <h2>{{couple.female.name}}</h2>
           <p>{{couple.lastText}}</p>
         </div>
       </div>
-        <i class="icon ion-chevron-right icon-accessory"></i>
 
         <ion-option-button class="button-assertive" ng-click="remove(chat)">
           Delete

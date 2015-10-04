@@ -205,6 +205,18 @@ img.toplist-user {
 	height: 100px;
 }
 
+.toplist-container div.item-content{
+	padding: 0px 10px 0px 10px !important;
+}
+
+div.toplist-row{
+	margin-left: ;
+}
+
+div.toplist-row .col{
+	text-align: center;
+}
+
 /* ACCOUNT */
 #account-img {
 	width: 100px;
