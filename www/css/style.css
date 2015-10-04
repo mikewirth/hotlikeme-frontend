@@ -90,19 +90,20 @@ div.compare_person {
 	padding: 0px;
 }
 
+/*
 td-card.card-0 {
   -webkit-transform: translate3d(0, 0px, 0);
-  transform: translate3d(0, 0px, 0);
-  top: 0px;
+  transform: translate3d(0, 0px, 0) scale(95%, 100%);
 }
 td-card.card-1 {
-  -webkit-transform: translate3d(0, 4px, -4px);
-  transform: translate3d(0, 4px, -4px);
+  -webkit-transform: translate3d(0, 4px, 0);
+  transform: translate3d(0, 4px, 0);
 }
 td-card.card-2 {
-  -webkit-transform: translate3d(0, 8px, -8px);
-  transform: translate3d(0, 8px, -8px);
+  -webkit-transform: translate3d(0, 8px, 0);
+  transform: translate3d(0, 8px, 0);
 }
+*/
 
 button.round {
 	border-radius: 50%;
@@ -127,14 +128,19 @@ button.undecided {
 td-card {
 	background-color: white;
 	height: 240px;
-	border: 1px solid #999;
-    box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
-    border-radius: 6px;
+	/* border: 1px solid #999; */
+    /* box-shadow: 0px 1px 3px rgba(0,0,0,0.2); */
+    /* border-radius: 6px; */
     position: absolute;
-	top: 10px;
+	/* top: 10px; */
 	left: 10px;
 	right: 10px;
 	overflow: hidden;
+
+
+	border: 1px solid #999;
+  	box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+  	border-radius: 6px;
 }
 
 #controls{
