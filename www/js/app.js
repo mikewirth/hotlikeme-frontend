@@ -18,7 +18,7 @@ angular.module('hotlikeme', [
 
 .run(function($ionicPlatform, $rootScope, $state, Restangular, ngFB, $cookies, UsersAPI) {
   // Set API endpoint
-  Restangular.setBaseUrl('http://local.dealini.ch:5000/api');
+  Restangular.setBaseUrl('http://ec2-52-28-68-232.eu-central-1.compute.amazonaws.com/api');
 
   // Initialize FB app
   ngFB.init({appId: '1629298697340872'});

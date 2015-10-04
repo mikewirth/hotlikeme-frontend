@@ -44,13 +44,18 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
   };
 })
 
-.controller('RateCtrl', function($scope, $rootScope, ComparisonsAPI) {
+.controller('RateCtrl', function($scope, $rootScope, ComparisonsAPI, UsersAPI) {
   console.log("entered");
 
-  ComparisonsAPI.getAll($rootScope.user.id).then(function (response) {
-    console.log(response);
-    $scope.comparisons = response;
-    // SessionsAPI.setCurrentUser(response);
+  $scope.$on('$ionicView.enter', function() {
+    UsersAPI.get('me').then(function (response) {
+      $rootScope.user = response;
+      ComparisonsAPI.getAll($rootScope.user.id).then(function (response) {
+        console.log(response);
+        $scope.comparisons = response;
+        // SessionsAPI.setCurrentUser(response);
+      });
+    });
   });
 
 
@@ -74,6 +79,8 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
   $scope.cardSwipedLeft = function(index) {
     // var newCard = ""// new card data
     // $scope.cards.push(newCard);
+    console.log('TDCardDelegate');
+    // TDCardDelegate.$getByHandle('comp').getFirstCard().swipe('left');
     console.log("swiped left" + index);
     var comparison = $scope.comparisons.splice(index, 1);
     ComparisonsAPI.update(comparison[0].id, 'male');
@@ -114,21 +121,22 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  CouplesAPI.getAll().then(function (response) {
-    $scope.couples = response;
+  $scope.$on('$ionicView.enter', function() {
+    console.log('couples');
+    CouplesAPI.getAll().then(function (response) {
+      console.log(response);
+      $scope.couples = response;
+    });
   });
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
-
 .controller('AccountCtrl', function($scope, UsersAPI) {
-  console.log("test");
-  UsersAPI.get('me').then(function (response) {
-    $scope.user = response;
-    UsersAPI.getAllMatches($scope.user.id).then(function (response) {
-      $scope.matches = response;
+  $scope.$on('$ionicView.enter', function() {
+    UsersAPI.get('me').then(function (response) {
+      $scope.user = response;
+      UsersAPI.getAllMatches($scope.user.id).then(function (response) {
+        $scope.matches = response;
+      });
     });
   });
 });

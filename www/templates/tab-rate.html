@@ -2,10 +2,10 @@
   <ion-content>
     <!-- SWIPEABLE -->
     <div class="empty_message" ng-if="comparisons.length == 0">
-      There are currently no couples for you to rate.
+      There are currently no more couples for you to rate.
     </div>
     <td-cards>
-      <td-card ng-repeat="comparison in comparisons track by $index" ng-style="{'z-index': 50-$index}" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}">
+      <td-card ng-repeat="comparison in comparisons track by $index" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" class="card card-{{$index}}" delegate-handle="comp">
             <div class="row card-container">
               <div class="col">
                 <div class="compare_person" ng-style="{'background-image': 'url(' + comparison.male.profilePic + ')'}"></div>
@@ -17,7 +17,7 @@
                   <!-- spacer -->
               </div>
               <div class="col">
-                <div class="compare_person"></div>
+                <div class="compare_person" ng-style="{'background-image': 'url(' + comparison.female.profilePic + ')'}"></div>
                 <div class="person_info">
                   {{comparison.female.name}}
                 </div>
