@@ -5,6 +5,10 @@ ion-tabs.tabs-color-active-positive .tab-item.tab-item-active, ion-tabs.tabs-col
 	color: #f47921;
 }
 
+ion-tabs.tabs-color-active-positive .tab-item {
+	color: #000;
+}
+
 .empty_message {
 	padding: 20px;
 	text-align: center;
@@ -15,6 +19,27 @@ ion-tabs.tabs-color-active-positive .tab-item.tab-item-active, ion-tabs.tabs-col
 	height: 60%;
 	vertical-align: middle;
 	margin-bottom: 4px;
+}
+
+.bar-stable {
+	background-color: #f47921 !important;
+	border: none !important;
+	/*border-bottom: 1px solid #ddd !important; */
+	box-shadow: 0 1px 4px #ccc !important;
+}
+.bar.bar-stable .title {
+	color: #fff !important;
+}
+
+.dividerbar {
+	border-top: 1px solid #ddd;
+	/* border-bottom: 1px solid #ddd; */
+	width: 100%;
+	background-color: #f8f8f8
+}
+.dividerbar h3 {
+	padding-top: 5px;
+	margin-bottom: 0;
 }
 
 /*START SCREEN*/

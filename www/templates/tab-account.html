@@ -5,10 +5,12 @@
 	<div class="col">
 		<div id="account-img" ng-style="{'background-image': 'url(' + user.profilePic + ')'}"></div>
 	</div>
-	<div class="col">
-		<h3>Hotness:<br>{{Math.round(user.sigma*10)/10}}</h3>
-		</div>
+	<div class="col"><h3>Hotness:<br>{{Math.round(user.hotness*10)/10}}</h3></div>
 	<div class="col"><h3>Equals:<br>12</h3></div>
+</div>
+<div class="row dividerbar">
+	<div class="col">
+		<h3>Your matches</h3>
 	</div>
 </div>
 <div id="suggested-matches">
