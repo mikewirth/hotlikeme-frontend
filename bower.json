@@ -8,6 +8,7 @@
     "ionic-contrib-tinder-cards": "https://github.com/julienroubieu/ionic-ion-tinder-cards.git#6f7da4fc7a498d0225d7585ace1c4de7307e1237",
     "restangular": "~1.5.1",
     "openfb": "~0.5.0",
-    "angular-cookies": "~1.4.7"
+    "angular-cookies": "~1.4.7",
+    "fontawesome": "~4.4.0"
   }
 }
