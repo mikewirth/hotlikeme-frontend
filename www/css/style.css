@@ -42,6 +42,15 @@ ion-tabs.tabs-color-active-positive .tab-item {
 	margin-bottom: 0;
 }
 
+.fa {
+	margin: 2px auto 0 auto !important;
+}
+.fa-list-ol {
+	font-size: 26px !important;
+	height: 27px !important;
+	margin: 6px auto 0 auto !important;	
+}
+
 /*START SCREEN*/
 
 #background {
@@ -233,4 +242,15 @@ button.dislike {
 	position: absolute;
 	bottom: 0px;
 	right: 0px;
+}
+
+@font-face {
+    font-family: 'fontawesome';
+    src:url('../lib/fontawesome/fonts/fontawesome-webfont.eot');
+    src:url('../lib/fontawesome/fonts/fontawesome-webfont.eot') format('embedded-opentype'),
+        url('../lib/fontawesome/fonts/fontawesome-webfont.woff') format('woff'),
+        url('../lib/fontawesome/fonts/fontawesome-webfont.ttf') format('truetype'),
+        url('../lib/fontawesome/fonts/fontawesome-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
