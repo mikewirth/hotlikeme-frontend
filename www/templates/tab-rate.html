@@ -1,10 +1,10 @@
 <ion-view view-title="<img src='img/logo_white.png' class='navbar_logo'>">
   <ion-content>
     <!-- SWIPEABLE -->
-    <div class="empty_message" ng-if="comparisons.length == 0">
+    <div class="empty_message" ng-if="cardsLeft == 0">
       There are currently no more couples for you to rate.
     </div>
-    <h3 class="explanation" ng-if="comparisons.length > 0">Who is hotter?</h3>
+    <h3 class="explanation" ng-if="cardsLeft > 0">Who is hotter?</h3>
     <td-cards control="cardsControl" delegate-handle="comp">
       <td-card ng-repeat="comparison in comparisons track by $index" on-destroy="cardDestroyed($index)" on-transition-left="cardSwipedLeft($index)" on-transition-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" class="card card-{{$index}}">
             <div class="row card-container">
@@ -29,7 +29,7 @@
 
     <!-- CONTROLS -->
 
-    <div class="row" id="controls" ng-if="comparisons.length > 0">
+    <div class="row" id="controls" ng-if="cardsLeft > 0">
       <div>
         <button class="button round rate" ng-click="swipeLeft()">
           <i class="icon ion-male"></i>

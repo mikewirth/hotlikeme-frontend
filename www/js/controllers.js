@@ -105,7 +105,7 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
   };
 
   $scope.cardPartialSwipe = function(position)  {
-    console.log("partial" + position);
+    // console.log("partial" + position);
     // var newCard = ""// new card data
     // $scope.cards.push(newCard);
     // console.log("partial swipe" + position);
@@ -116,7 +116,8 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
     // $scope.cards.push(newCard);
     console.log("swiped right" + index);
 
-    var comparison = $scope.comparisons.splice(index, 1);
+    $scope.cardsControl.swipeRight();
+    var comparison = $scope.comparisons[index];
     ComparisonsAPI.update(comparison[0].id, 'equal');
   };
 })
