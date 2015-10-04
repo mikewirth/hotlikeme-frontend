@@ -143,4 +143,6 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
       });
     });
   });
+
+  $scope.Math = window.Math;
 });

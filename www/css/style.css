@@ -164,29 +164,28 @@ td-card {
 
 /* TOPLIST */
 
-img.toplist-user{
+img.toplist-user {
 	border-radius: 50%;
 	width: 100px;
 	height: 100px;
 }
 
 /* ACCOUNT */
-#account-img{
-	width: 200px;
-	height: 200px;
+#account-img {
+	width: 100px;
+	height: 100px;
 	border-radius: 50%;
   	background-size: cover;
     background-repeat: no-repeat;
 }
 
-div.suggested-match{
+div.suggested-match {
 	height: 200px;
 	width: 200px;
 	border-radius: 50%;
 	position: relative;
 	display: block;
-	margin-left: auto;
-  	margin-right: auto;
+	margin: 10px auto;
 
 	background-size: cover;
 	background-repeat: no-repeat;
