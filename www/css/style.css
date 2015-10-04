@@ -11,6 +11,12 @@ ion-tabs.tabs-color-active-positive .tab-item.tab-item-active, ion-tabs.tabs-col
 	font-size: 20px;
 }
 
+.navbar_logo {
+	height: 60%;
+	vertical-align: middle;
+	margin-bottom: 4px;
+}
+
 /*START SCREEN*/
 
 #background {
