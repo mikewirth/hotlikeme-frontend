@@ -201,8 +201,9 @@ img.toplist-user {
 	width: 100px;
 	height: 100px;
 	border-radius: 50%;
-  	background-size: cover;
+	background-size: cover;
     background-repeat: no-repeat;
+    margin-bottom: 5px;
 }
 
 div.suggested-match {
