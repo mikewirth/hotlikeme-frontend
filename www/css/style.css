@@ -33,13 +33,22 @@ ion-tabs.tabs-color-active-positive .tab-item {
 
 .dividerbar {
 	border-top: 1px solid #ddd;
-	/* border-bottom: 1px solid #ddd; */
+	border-bottom: 1px solid #eee;
 	width: 100%;
 	background-color: #f8f8f8
 }
 .dividerbar h3 {
 	padding-top: 5px;
 	margin-bottom: 0;
+}
+
+.fa {
+	margin: 2px auto 0 auto !important;
+}
+.fa-list-ol {
+	font-size: 26px !important;
+	height: 27px !important;
+	margin: 6px auto 0 auto !important;	
 }
 
 /*START SCREEN*/
@@ -213,8 +222,9 @@ div.toplist-row .col{
 	width: 100px;
 	height: 100px;
 	border-radius: 50%;
-  	background-size: cover;
+	background-size: cover;
     background-repeat: no-repeat;
+    margin-bottom: 5px;
 }
 
 div.suggested-match {
@@ -244,4 +254,15 @@ button.dislike {
 	position: absolute;
 	bottom: 0px;
 	right: 0px;
+}
+
+@font-face {
+    font-family: 'fontawesome';
+    src:url('../lib/fontawesome/fonts/fontawesome-webfont.eot');
+    src:url('../lib/fontawesome/fonts/fontawesome-webfont.eot') format('embedded-opentype'),
+        url('../lib/fontawesome/fonts/fontawesome-webfont.woff') format('woff'),
+        url('../lib/fontawesome/fonts/fontawesome-webfont.ttf') format('truetype'),
+        url('../lib/fontawesome/fonts/fontawesome-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
