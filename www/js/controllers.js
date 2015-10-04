@@ -53,6 +53,7 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
       ComparisonsAPI.getAll($rootScope.user.id).then(function (response) {
         console.log(response);
         $scope.comparisons = response;
+        $scope.cardsLeft = response.length;
         // SessionsAPI.setCurrentUser(response);
       });
     });
@@ -69,8 +70,12 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
 
   $scope.cardDestroyed = function(index) {
     console.log("card destroyed" + index);
-    $scope.comparisons.splice(index, 1);
+    // $scope.comparisons.splice(index, 1);
     // $scope.cards.splice(index, 1);
+    $scope.cardsLeft--;
+    if($scope.cardsLeft == 0){
+      $scope.comparisons = [];  
+    }
   };
 
   $scope.cardSwiped = function(index) {
