@@ -99,7 +99,7 @@ ion-tabs.tabs-color-active-positive .tab-item {
 /*COMPARISONS*/
 
 td-cards {
-	margin-top: 10px;
+	/*margin-top: 10px;*/
 }
 
 div.compare_person {
@@ -119,8 +119,20 @@ div.compare_person {
     padding: 10px;
 }
 
+.card {
+	padding: 0 !important;
+}
+
 .td-card .row, .td-card .col {
 	padding: 0px;
+}
+
+.explanation {
+	text-align: center;
+	padding: 10px;
+	margin-bottom: 0;
+	color: #666;
+	font-weight: normal;
 }
 
 /*
@@ -169,16 +181,17 @@ td-card {
 	left: 10px;
 	right: 10px;
 	overflow: hidden;
+	margin-top: 0 !important;
 
 
-	border: 1px solid #999;
-  	box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+	/*border: 1px solid rgba(0,0,0,0.2);*/
+  	box-shadow: 0px 0px 3px #eee;
   	border-radius: 6px;
 }
 
 #controls{
 	position: absolute;
-	top: 300px;
+	top: 330px;
 }
 
 #controls > div {

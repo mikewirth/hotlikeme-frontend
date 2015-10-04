@@ -4,6 +4,7 @@
     <div class="empty_message" ng-if="comparisons.length == 0">
       There are currently no more couples for you to rate.
     </div>
+    <h3 class="explanation">Who is hotter?</h3>
     <td-cards control="cardsControl" delegate-handle="comp">
       <td-card ng-repeat="comparison in comparisons track by $index" on-destroy="cardDestroyed($index)" on-transition-left="cardSwipedLeft($index)" on-transition-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" class="card card-{{$index}}">
             <div class="row card-container">
