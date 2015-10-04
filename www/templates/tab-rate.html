@@ -4,8 +4,8 @@
     <div class="empty_message" ng-if="comparisons.length == 0">
       There are currently no more couples for you to rate.
     </div>
-    <td-cards>
-      <td-card ng-repeat="comparison in comparisons track by $index" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" class="card card-{{$index}}" delegate-handle="comp">
+    <td-cards control="cardsControl" delegate-handle="comp">
+      <td-card ng-repeat="comparison in comparisons track by $index" on-destroy="cardDestroyed($index)" on-transition-left="cardSwipedLeft($index)" on-transition-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" class="card card-{{$index}}">
             <div class="row card-container">
               <div class="col">
                 <div class="compare_person" ng-style="{'background-image': 'url(' + comparison.male.profilePic + ')'}"></div>
@@ -30,7 +30,7 @@
 
     <div class="row" id="controls" ng-if="comparisons.length > 0">
       <div>
-        <button class="button round rate" ng-click="cardSwipedLeft(0)">
+        <button class="button round rate" ng-click="swipeLeft()">
           <i class="icon ion-thumbsup"></i>
         </button>        
       
@@ -40,7 +40,7 @@
         </button>
       
       
-        <button class="button round rate" ng-click="cardSwipedRight(0)">
+        <button class="button round rate" ng-click="swipeRight()">
           <i class="icon ion-thumbsup"></i>
         </button>
       </div>
