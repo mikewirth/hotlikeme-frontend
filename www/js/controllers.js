@@ -135,6 +135,14 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
     console.log('couples');
     CouplesAPI.getAll().then(function (response) {
       console.log(response);
+      
+      response.forEach(function (item) {
+        var rand = Math.random();
+        var coeff = rand < 0.5 ? -1 : 1;
+        var value = Math.round((item.male.hotness + (rand * 20/100) * coeff) * 10) / 10;
+        item.female.hotness = value;
+      })
+      
       $scope.couples = response;
     });
   });
