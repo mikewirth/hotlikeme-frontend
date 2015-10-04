@@ -3,7 +3,7 @@
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="couple in couples" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
       <div class="row">
-        <div class="col">
+        <div class="col col-33">
           <img ng-src="{{couple.male.profilePic}}" class="toplist-user">
           <h2>{{couple.male.name}}</h2>
           <p>{{couple.lastText}}</p>
@@ -11,7 +11,7 @@
         <div class="col">
           
         </div>
-        <div class="col">
+        <div class="col col-33">
           <img ng-src="{{couple.female.profilePic}}" class="toplist-user">
           <h2>{{couple.female.name}}</h2>
           <p>{{couple.lastText}}</p>
