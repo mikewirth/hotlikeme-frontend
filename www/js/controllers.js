@@ -73,9 +73,6 @@ angular.module('hotlikeme.controllers', ['ngOpenFB'])
     // $scope.comparisons.splice(index, 1);
     // $scope.cards.splice(index, 1);
     $scope.cardsLeft--;
-    if($scope.cardsLeft == 0){
-      $scope.comparisons = [];  
-    }
   };
 
   $scope.cardSwiped = function(index) {
